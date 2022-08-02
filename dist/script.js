@@ -27,13 +27,6 @@ function listarFilmesNaTela(imagemFilme, nomeFilme) {
   var elementoListaFilmes = document.getElementById("listaFilmes");
   elementoListaFilmes.innerHTML = elementoListaFilmes.innerHTML + elementoDiv;
 }
-
-function delFilme() {
-  var filmeInformado = document.getElementById("delFilme").value;
-  if (listaNomes.indexOf(filmeInformado) === 1) {
-    filmeInformado.remove()
-  }
-}
 */
 var listaImagens = [];
 var listaNomes = [];
@@ -48,9 +41,6 @@ function verifyJpg(imagem,nome){
     listaImagens.push(imagem);
     listaNomes.push(nome);
     mostrarFilmes();
-  document.getElementById("imagemFilme").value="";
-  document.getElementById("nomeFilme").value="";
-  document.getElementById("delFilme").value="";
   } else {
     alert("Somente imagens no formato jpg são aceitas");
   }
@@ -64,6 +54,9 @@ function mostrarFilmes(){
     let p = '<p class="nomeFilme" style="visibility:hidden">' + listaNomes[i] + "</p>"
     eListaFilmes.innerHTML+=  div + img + p;
   }
+  document.getElementById("imagemFilme").value="";
+  document.getElementById("nomeFilme").value="";
+  document.getElementById("delFilme").value="";
 }
 function limpaTela(){
   const divFilmes = document.getElementById("listaFilmes");
@@ -85,4 +78,11 @@ function showOptions(){
 function hideOptions(){
   let target = event.currentTarget;
   target.lastChild.style.visibility="hidden";
+}
+function verifyExists(){
+  if (listaNomes.indexOf(nome)){
+    alert("Esse filme já existe!")
+  } else {
+    console.log("entrou no else")
+  }
 }
