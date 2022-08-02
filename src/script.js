@@ -28,9 +28,9 @@ function listarFilmesNaTela(imagemFilme, nomeFilme) {
   elementoListaFilmes.innerHTML = elementoListaFilmes.innerHTML + elementoDiv;
 }
 */
-var listaImagens = [];
-var listaNomes = [];
-
+var listaImagens = ["https://upload.wikimedia.org/wikipedia/pt/3/32/The_Notebook_p%C3%B4ster.jpg","https://images-na.ssl-images-amazon.com/images/I/61MeTlsDRtL.jpg"];
+var listaNomes = ["Diario de uma Paixão","A lista de Schindler"];
+mostrarFilmes();
 function adicionarFilme() {
   let imagem = document.getElementById("imagemFilme").value;
   let nome = document.getElementById("nomeFilme").value;
@@ -49,10 +49,11 @@ function mostrarFilmes(){
   limpaTela();
   let eListaFilmes = document.getElementById("listaFilmes");
   for (var i=0; i<listaNomes.length; i++) {
-    let div = "<div id = " + listaNomes[i] + " onmouseover='showOptions()'  onmouseout='hideOptions()' class='divFilme'>"
     let img = "<img src =" + listaImagens[i] + ">";
-    let p = '<p class="nomeFilme" style="visibility:hidden">' + listaNomes[i] + "</p>"
-    eListaFilmes.innerHTML+=  div + img + p;
+    let p = "<p class='nomeFilme' style='visibility:hidden' >" + listaNomes[i] + "</p>"
+    let button = "<button class='lixo' style='visibility:hidden' onClick='excluirFilme()'>❌</button>"
+    let div = "<div id = "+ listaNomes[i] +" onmouseover='showOptions()'  onmouseout='hideOptions()' class='divFilme'>" + img + p + button + "</div>"
+    eListaFilmes.innerHTML+=  div;
   }
   document.getElementById("imagemFilme").value="";
   document.getElementById("nomeFilme").value="";
@@ -73,11 +74,13 @@ function deletaFilme(){
 }
 function showOptions(){
   let target = event.currentTarget;
-  target.lastChild.style.visibility="visible";
+  target.querySelector(".lixo").style.visibility="visible"
+  target.querySelector(".nomeFilme").style.visibility="visible";
 }
 function hideOptions(){
   let target = event.currentTarget;
-  target.lastChild.style.visibility="hidden";
+  target.querySelector(".lixo").style.visibility="hidden"
+  target.querySelector(".nomeFilme").style.visibility="hidden";
 }
 function verifyExists(imagem,nome){
   if (listaNomes.includes(nome,0)=== true){
@@ -85,4 +88,7 @@ function verifyExists(imagem,nome){
   } else {
     verifyJpg(imagem,nome)
   }
+}
+function excluirFilme(){
+  console.log("clicou")
 }

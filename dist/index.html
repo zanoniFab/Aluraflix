@@ -22,10 +22,10 @@
       Aluraflix
     </h1>
     <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
-    <p class="page-subtitle">
+    <p class="page-subtitle first">
       Qual seu filme favorito?
     </p>
-    <p class="page-subtitle">Crie uma lista com seus filmes favoritos!</p>
+    <p class="page-subtitle last">Crie uma lista com seus filmes favoritos!</p>
     <div class="form-wrapper">
       <input type="text" id="imagemFilme" name="filme" placeholder="Insira endereço de imagem">
       <input type="text" id="nomeFilme" name="filme" placeholder="Insira o nome do filme">
@@ -34,7 +34,7 @@
   </div>
   <div class="form-wrapper">
     <input type="text" id="delFilme" name="filme" placeholder="Insira o nome do filme">
-    <button onClick="deletaFilme()">Remover Filme</button>
+    <button class="delete" onClick="deletaFilme()">Remover Filme</button>
   </div>
   <div id="listaFilmes" class="listaFilmes">
 
