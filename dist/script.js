@@ -39,8 +39,8 @@ var listaImagens = [];
 var listaNomes = [];
 
 function adicionarFilme() {
-  var imagem = document.getElementById("imagemFilme").value;
-  var nome = document.getElementById("nomeFilme").value;
+  let imagem = document.getElementById("imagemFilme").value;
+  let nome = document.getElementById("nomeFilme").value;
   verifyJpg(imagem, nome);
 }
 function verifyJpg(imagem,nome){
@@ -48,6 +48,9 @@ function verifyJpg(imagem,nome){
     listaImagens.push(imagem);
     listaNomes.push(nome);
     mostrarFilmes();
+  document.getElementById("imagemFilme").value="";
+  document.getElementById("nomeFilme").value="";
+  document.getElementById("delFilme").value="";
   } else {
     alert("Somente imagens no formato jpg são aceitas");
   }
@@ -56,12 +59,15 @@ function mostrarFilmes(){
   limpaTela();
   let eListaFilmes = document.getElementById("listaFilmes");
   for (var i=0; i<listaNomes.length; i++) {
-    eListaFilmes.innerHTML+= "<div id = " + listaNomes[i] + ">" + "<p>" + listaNomes[i] + "</p>" + "<img src =" + listaImagens[i] + ">"
+    let div = "<div id = " + listaNomes[i] + " onmouseover='showOptions()'  onmouseout='hideOptions()'>"
+    let img = "<img src =" + listaImagens[i] + ">";
+    let p = '<p class="nomeFilme" style="visibility:hidden">' + listaNomes[i] + "</p>"
+    eListaFilmes.innerHTML+=  div + img + p;
   }
 }
 function limpaTela(){
   const divFilmes = document.getElementById("listaFilmes");
-  divFilmes.innerHTML = "" 
+  divFilmes.innerHTML = "";
 }
 function deletaFilme(){
   const deletar = document.getElementById("delFilme").value;
@@ -71,4 +77,12 @@ function deletaFilme(){
     }
   mostrarFilmes();
   }
+}
+function showOptions(){
+  let target = event.currentTarget;
+  target.lastChild.style.visibility="visible";
+}
+function hideOptions(){
+  let target = event.currentTarget;
+  target.lastChild.style.visibility="hidden";
 }

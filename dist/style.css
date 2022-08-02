@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-04-aluraflix-e-filmes.png");
   background-color: #000000;
@@ -68,5 +69,9 @@ body {
   color: #ffffff;
   justify-content: center;
   display: flex;
-  flex-direction: column;
+}
+.nomeFilme {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 1px;
 }
