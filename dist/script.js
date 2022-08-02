@@ -34,7 +34,7 @@ var listaNomes = [];
 function adicionarFilme() {
   let imagem = document.getElementById("imagemFilme").value;
   let nome = document.getElementById("nomeFilme").value;
-  verifyJpg(imagem, nome);
+  verifyExists(imagem,nome);
 }
 function verifyJpg(imagem,nome){
   if (imagem.endsWith(".jpg")){
@@ -49,7 +49,7 @@ function mostrarFilmes(){
   limpaTela();
   let eListaFilmes = document.getElementById("listaFilmes");
   for (var i=0; i<listaNomes.length; i++) {
-    let div = "<div id = " + listaNomes[i] + " onmouseover='showOptions()'  onmouseout='hideOptions()'>"
+    let div = "<div id = " + listaNomes[i] + " onmouseover='showOptions()'  onmouseout='hideOptions()' class='divFilme'>"
     let img = "<img src =" + listaImagens[i] + ">";
     let p = '<p class="nomeFilme" style="visibility:hidden">' + listaNomes[i] + "</p>"
     eListaFilmes.innerHTML+=  div + img + p;
@@ -79,10 +79,10 @@ function hideOptions(){
   let target = event.currentTarget;
   target.lastChild.style.visibility="hidden";
 }
-function verifyExists(){
-  if (listaNomes.indexOf(nome)){
-    alert("Esse filme já existe!")
+function verifyExists(imagem,nome){
+  if (listaNomes.includes(nome,0)=== true){
+    alert("Esse filme já existe!");
   } else {
-    console.log("entrou no else")
+    verifyJpg(imagem,nome)
   }
 }

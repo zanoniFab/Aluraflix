@@ -37,7 +37,6 @@ body {
 
 #listaFilmes img {
   margin: 10px;
-  max-height: 250px;
 }
 
 .form-wrapper {
@@ -67,8 +66,17 @@ body {
 }
 .listaFilmes {
   color: #ffffff;
-  justify-content: center;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  
+}
+.listaFilmes img{
+	width: 340px;
+	height: 220px;
+  max-width: 340px;
+	max-height: 220px;
 }
 .nomeFilme {
   font-weight: 700;
