@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Aluraflix - dia 5</title>
+  <title>CodePen - Aluraflix - Avançando</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -27,14 +27,14 @@
     </p>
     <p class="page-subtitle last">Crie uma lista com seus filmes favoritos!</p>
     <div class="form-wrapper">
-      <input type="text" id="imagemFilme" name="filme" placeholder="Insira endereço de imagem">
-      <input type="text" id="nomeFilme" name="filme" placeholder="Insira o nome do filme">
+      <input type="text" id="imagemFilme" name="filme"  placeholder="Insira endereço de imagem" >
+      <input autofocus type="text" id="nomeFilme" name="filme" placeholder="Insira o nome do filme">
       <button onClick="adicionarFilme()">Adicionar Filme</button>
     </div>
   </div>
   <div class="form-wrapper">
-    <input type="text" id="delFilme" name="filme" placeholder="Insira o nome do filme">
-    <button class="delete" onClick="deletaFilme()">Remover Filme</button>
+    <input type="text" id="search" name="search" placeholder="Insira o nome do filme">
+    <button class="delete" onClick="excluirFilme()">Buscar Filme</button>
   </div>
   <div id="listaFilmes" class="listaFilmes">
 
